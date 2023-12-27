@@ -12,4 +12,4 @@ COPY . .
 
 CMD [ "node", "index.js" ]
 
-EXPOSE 3001
+EXPOSE 8080
