@@ -30,8 +30,9 @@ const getUsers = async (req, res) => {
 
   res.status(200).send(userDto)*/
 
-  const query = "Select * from name"
+  const query = "Select * from testsql"
   pool.query(query, (err, result) => {
+    console.log('IN HERE')
     console.log(result);
     res.json(result)
   })
