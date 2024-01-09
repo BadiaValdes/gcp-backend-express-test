@@ -14,6 +14,14 @@ const createUser = async (req, res) => {
   res.status(200).json({ message: 'Usuario creado correctamente' })
 }
 
+const deleteUser = async (req, res) => {
+  const result = await User.findOneAndDelete({ _id: req.params.id })
+  if (result === null) {
+    return res.status(400).json({ error: 'No existe el usuario' })
+  }
+  res.status(200).json({ message: 'Usuario eliminado correctamente' })
+}
+
 const getUsers = async (req, res) => {
   const users = await User.find({})
 
@@ -22,4 +30,4 @@ const getUsers = async (req, res) => {
   res.status(200).send(userDto)
 }
 
-module.exports = { createUser, getUsers }
+module.exports = { createUser, getUsers, deleteUser }
