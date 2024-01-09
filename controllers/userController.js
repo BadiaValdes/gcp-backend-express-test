@@ -8,7 +8,7 @@ const pool = mysql.createPool({
   user: "root",
   password: "TestSql",
   database: "testsql",
-  socketPath: `/cloudsql/testsql`,
+  socketPath: `/cloudsql/cdt-principal:us-central1:testsql`,
 })
 
 const createUser = async (req, res) => {
