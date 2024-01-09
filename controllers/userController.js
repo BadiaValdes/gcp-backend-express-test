@@ -34,7 +34,7 @@ const getUsers = async (req, res) => {
   pool.query(query, (err, result) => {
     console.log('IN HERE')
     console.log(result);
-    res.json(result)
+    res.status(200).json(JSON.stringify(result))
   })
 }
 
