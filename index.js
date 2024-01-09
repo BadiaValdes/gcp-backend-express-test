@@ -7,7 +7,9 @@ const cors = require('cors')
 
 app.use(router)
 
-app.use(cors())
+app.use(cors({
+    origin: '*'
+}))
 
 app.get('/', (req, res) => {
     return res.status(200).json({
