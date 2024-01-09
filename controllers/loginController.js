@@ -1,4 +1,5 @@
-const User = require('../models/userModel')
+const User = require( '../models/userModel' )
+const UserDto = require('../dto/userDto')
 const jwt = require('jsonwebtoken')
 const { validateLogin } = require('../schemas/loginSchema')
 
@@ -11,17 +12,9 @@ const login = async (req, res) => {
   User.findOne({ email: body.email })
     .then((user) => {
       if (user) {
+        
         if (user.password === body.password) {
-          const { _id, email, nombre, apellido, roles, telefono, dni } = user
-          const usuario = {
-            _id,
-            email,
-            nombre,
-            apellido,
-            roles,
-            telefono,
-            dni,
-          }
+          const usuario = new UserDto(user)
           let token = jwt.sign({ usuario: usuario }, process.env.SEED_AUTENTICACION, {
             expiresIn: process.env.CADUCIDAD_TOKEN,
           })
