@@ -22,7 +22,7 @@ app.use(cors());
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
 
-app.get("/", (req, res) => {
+app.get("/home", (req, res) => {
   const query = "Select * from testtabla";
   pool.query(query, [], (err, result) => {
     if (err) throw err;
