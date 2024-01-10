@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const { IAMCredentialsClient } = require("@google-cloud/iam-credentials");
 
-const port = process.env.PORT || 5000;
+const port = 5000;
 const cors = require("cors");
 
 //const connectDB = require('./config/db')
