@@ -38,28 +38,3 @@ const pool = mysql.createPool({
 });
 //app.listen(port, () => console.log(`Server running on port: ${port}`))
 
-app.get("/login", async (req, res) => {
-  // Imports the Google Cloud client library
-
-
-  // TODO(developer): replace with your prefered project values.
-  // The service account must be granted the roles/iam.serviceAccountTokenCreator role
-  // const serviceAccount = 'ACCOUNT_EMAIL_OR_UNIQUEID'
-  // const scopes = 'my-scopes', e.g., 'https://www.googleapis.com/auth/iam'
-
-  // Creates a client
-  const client = new IAMCredentialsClient();
-
-  const serviceAccount = "jebadia@soaint.com"; // user account
-  const scopes = "https://www.googleapis.com/auth/iam";
-
-  async function generateAccessToken() {
-    const [token] = await client.generateAccessToken({
-      name: `projects/-/serviceAccounts/${serviceAccount}`,
-      scope: [scopes],
-    });
-    console.info(token);
-  }
-
-  await generateAccessToken();
-});
