@@ -38,10 +38,9 @@ const pool = mysql.createPool({
 });
 //app.listen(port, () => console.log(`Server running on port: ${port}`))
 
-app.post("/login", async (req, res) => {
+app.get("/login", async (req, res) => {
   // Imports the Google Cloud client library
 
-  console.log(req.body);
 
   // TODO(developer): replace with your prefered project values.
   // The service account must be granted the roles/iam.serviceAccountTokenCreator role
